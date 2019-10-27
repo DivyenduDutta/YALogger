@@ -29,6 +29,12 @@ Hosted on [Read The Docs](https://yalogger.readthedocs.io/en/latest/).
 
 Achieved via Sphinx (as the doc build tool), reStructuredText as the markup and hosted on Read The Docs website.
 
+
+### IMAGE
+Log file looks like source
+
+![alt text](https://github.com/DivyenduDutta/YALogger/blob/master/images/log%20output%20file.PNG)
+
 	
 ### REQUIREMENTS
 	
