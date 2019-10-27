@@ -6,7 +6,6 @@ __pycache__/
 Data/
 build/
 dist/
-logs/
 YALogger.egg-info/
 !.mvn/wrapper/maven-wrapper.jar
 
