@@ -25,7 +25,7 @@ Uploaded to PIP - [PIP repo](https://pypi.org/project/YALogger/0.1/).
 
 **Log format - [log_level timestamp] [Module name]-[Method name] <log text>**
 
-### Documentation
+## Documentation
 
 Hosted on [Read The Docs](https://yalogger.readthedocs.io/en/latest/).
 
@@ -38,7 +38,7 @@ run
 pip install YALogger
 ```
 
-### IMAGE
+## IMAGE
 Log file looks like source
 
 ![alt text](https://github.com/DivyenduDutta/YALogger/blob/master/images/log%20output%20file.PNG)
@@ -48,7 +48,7 @@ logger.properties looks like so
 ![alt text](https://github.com/DivyenduDutta/YALogger/blob/master/images/logger%20properties.PNG)
 
 	
-### REQUIREMENTS
+## REQUIREMENTS
 	
 1. logger.properties file
 
@@ -57,7 +57,7 @@ logger.properties looks like so
 
 logger.properties file needs to have **[logger properties]** at the root
 	
-### SAMPLE USAGE
+## SAMPLE USAGE
 	
 ```from YALogger.custom_logger import Logger 
 Logger.initialize_logger(logger_prop_file_path = '.\logger.properties',log_file_path = './logs') 
@@ -73,7 +73,7 @@ Refer to [sample logger.properties](https://github.com/DivyenduDutta/YALogger/bl
 Ensure logs folder is present 
 
 
-### License
+## License
 
 This is an open source tool licensed under GPL v3.0. Copy of the license can be found
 [here](https://github.com/DivyenduDutta/goodreads-scraper-visualizer/blob/master/LICENSE.md).
