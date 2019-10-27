@@ -31,6 +31,10 @@ Hosted on [Read The Docs](https://yalogger.readthedocs.io/en/latest/).
 
 Achieved via Sphinx (as the doc build tool), reStructuredText as the markup and hosted on Read The Docs website.
 
+## INSTALLATION
+
+run ``` pip install YALogger
+```
 
 ### IMAGE
 Log file looks like source
