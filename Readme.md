@@ -33,7 +33,9 @@ Achieved via Sphinx (as the doc build tool), reStructuredText as the markup and 
 
 ## INSTALLATION
 
-run ``` pip install YALogger
+run 
+```
+pip install YALogger
 ```
 
 ### IMAGE
