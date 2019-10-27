@@ -20,6 +20,8 @@ Supports *2 modes of logging*:
 
 2. **CONSOLE** - Logs to the standard output console
 
+Uploaded to PIP - [PIP repo](https://pypi.org/project/YALogger/0.1/).
+
 
 **Log format - [log_level timestamp] [Module name]-[Method name] <log text>**
 
