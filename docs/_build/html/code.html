@@ -1,0 +1,318 @@
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <title>Documentation for the Code &#8212; Yet Another Logger  documentation</title>
+    <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="_static/language_data.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="Welcome to Yet Another Logger’s documentation!" href="index.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="documentation-for-the-code">
+<h1>Documentation for the Code<a class="headerlink" href="#documentation-for-the-code" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="module-YALogger.custom_logger">
+<span id="custom-logger-py"></span><h2>custom_logger.py<a class="headerlink" href="#module-YALogger.custom_logger" title="Permalink to this headline">¶</a></h2>
+<span class="target" id="module-custom_logger"></span><div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Tested to work only with python 2.7, not sure about python 3+</p>
+</div>
+<dl class="class">
+<dt id="custom_logger.Logger">
+<em class="property">class </em><code class="sig-prename descclassname">custom_logger.</code><code class="sig-name descname">Logger</code><span class="sig-paren">(</span><em class="sig-param">logger_prop_file_path</em>, <em class="sig-param">log_file_path</em><span class="sig-paren">)</span><a class="headerlink" href="#custom_logger.Logger" title="Permalink to this definition">¶</a></dt>
+<dd><p>Custom Logger class. Dont actually need to get an instance of this class, but
+do internally create an instance to call the <a class="reference internal" href="#custom_logger.Logger.__init__" title="custom_logger.Logger.__init__"><code class="xref py py-func docutils literal notranslate"><span class="pre">__init__()</span></code></a> which initializes a lot of the logger variables.</p>
+<p>Currently only provides three functions for logging</p>
+<ol class="arabic simple">
+<li><p><strong>Method entry logging</strong></p></li>
+<li><p><strong>Method exit logging</strong></p></li>
+<li><p><strong>Normal logging</strong></p></li>
+</ol>
+<p>Both Method entry logging and Method exit logging are only <em>INFO</em> level logging by default</p>
+<p>Supports <em>3 levels of logging</em> - <em>INFO, ERROR, DEBUG</em>. These are mutually exclusive (ie not hierarchial)</p>
+<p>Supports <em>2 modes of logging</em>:</p>
+<ol class="arabic simple">
+<li><p><strong>FILE</strong> - Writes logs to a file in the logs folder</p></li>
+<li><p><strong>CONSOLE</strong> - Logs to the standard output console</p></li>
+</ol>
+<p><strong>Log format - [&lt;log level&gt; &lt;timestamp&gt;] [Module name]-[Method name] &lt;log text&gt;</strong></p>
+<p><strong>REQUIREMENTS</strong></p>
+<ol class="arabic simple">
+<li><p>logger.properties file</p></li>
+<li><p>logs folder</p></li>
+</ol>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>logger.properties file needs to have [logger properties] at the root</p>
+</div>
+<p><strong>SAMPLE USAGE</strong></p>
+<p><code class="docutils literal notranslate"><span class="pre">from</span> <span class="pre">YALogger.custom_logger</span> <span class="pre">import</span> <span class="pre">Logger</span></code></p>
+<p><code class="docutils literal notranslate"><span class="pre">Logger.initialize_logger(logger_prop_file_path</span> <span class="pre">=</span> <span class="pre">'.\logger.properties',log_file_path</span> <span class="pre">=</span> <span class="pre">'./logs')</span></code></p>
+<p><code class="docutils literal notranslate"><span class="pre">Logger.perform_method_entry_logging('foo','bar')</span></code></p>
+<p><code class="docutils literal notranslate"><span class="pre">Logger.perform_method_exit_logging('foo','bar')</span></code></p>
+<p><code class="docutils literal notranslate"><span class="pre">Logger.log('info',</span> <span class="pre">'foo','bar','this</span> <span class="pre">is</span> <span class="pre">the</span> <span class="pre">log</span> <span class="pre">text')</span></code></p>
+<dl class="method">
+<dt id="custom_logger.Logger.__init__">
+<code class="sig-name descname">__init__</code><span class="sig-paren">(</span><em class="sig-param">logger_prop_file_path</em>, <em class="sig-param">log_file_path</em><span class="sig-paren">)</span><a class="headerlink" href="#custom_logger.Logger.__init__" title="Permalink to this definition">¶</a></dt>
+<dd><p>Initilaizing various <cite>Logger</cite> class properties:</p>
+<ol class="arabic simple">
+<li><p><cite>Logger.__level</cite> : the logging.level</p></li>
+<li><p><cite>Logger.__mode</cite> : the logging mode</p></li>
+<li><p><cite>Logger.__current_timestamp</cite> : the current timestamp</p></li>
+<li><p><cite>Logger.__log_file_path</cite> : the log file path and name</p></li>
+</ol>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>logger_prop_file_path</strong> (<em>str</em>) – the path of logger.properties</p></li>
+<li><p><strong>log_file_path</strong> (<em>str</em>) – the path of the log file</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="simple">
+<dt>Raises</dt><dd><p>NoSectionError
+IOError</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="custom_logger.Logger.__new__">
+<em class="property">static </em><code class="sig-name descname">__new__</code><span class="sig-paren">(</span><em class="sig-param">cls</em>, <em class="sig-param">logger_prop_file_path</em>, <em class="sig-param">log_file_path</em><span class="sig-paren">)</span><a class="headerlink" href="#custom_logger.Logger.__new__" title="Permalink to this definition">¶</a></dt>
+<dd><p>Defining code in <cite>__new__()</cite> to make <cite>Logger</cite> a singleton class
+<cite>Logger.__instance</cite> keeps tracj of whether an instance of <cite>Logger</cite> exists or not. If it doesnt
+exist then creates it otherwise returns the existing instance of <cite>Logger</cite></p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>logger_prop_file_path</strong> (<em>str</em>) – the path of logger.properties</p></li>
+<li><p><strong>log_file_path</strong> (<em>str</em>) – the path of the log file</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>singleton instance of <cite>Logger</cite></p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>instance of <cite>Logger</cite></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="custom_logger.Logger._open_log_file">
+<em class="property">static </em><code class="sig-name descname">_open_log_file</code><span class="sig-paren">(</span><em class="sig-param">log_file_path</em><span class="sig-paren">)</span><a class="headerlink" href="#custom_logger.Logger._open_log_file" title="Permalink to this definition">¶</a></dt>
+<dd><p>Opens the log file when logging.mode = FILE
+Opens in append mode</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>log_file_path</strong> (<em>str</em>) – the path of the log file</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>reference to opened file</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>file instance</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="custom_logger.Logger._validate_logging_level">
+<em class="property">static </em><code class="sig-name descname">_validate_logging_level</code><span class="sig-paren">(</span><em class="sig-param">logging_level</em><span class="sig-paren">)</span><a class="headerlink" href="#custom_logger.Logger._validate_logging_level" title="Permalink to this definition">¶</a></dt>
+<dd><p>Checks of the logging.level specified in logger.properties and validates whether it falls under the valid values
+Valid values are - ‘INFO’, ‘ERROR’ , ‘DEBUG’</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>logging_level</strong> (<em>str</em>) – logging level in logger.properties</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>logging levels from logger.properties</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>list</p>
+</dd>
+<dt class="field-even">Raises</dt>
+<dd class="field-even"><p><strong>ValueError</strong> – </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="custom_logger.Logger._validate_logging_mode">
+<em class="property">static </em><code class="sig-name descname">_validate_logging_mode</code><span class="sig-paren">(</span><em class="sig-param">logging_mode</em><span class="sig-paren">)</span><a class="headerlink" href="#custom_logger.Logger._validate_logging_mode" title="Permalink to this definition">¶</a></dt>
+<dd><p>Checks of the logging.mode specified in logger.properties and validates whether it falls under the valid values
+Valid values are - ‘FILE’, ‘CONSOLE’</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>logging_mode</strong> (<em>str</em>) – logging mode in logger.properties</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>logging modes from logger.properties</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>list</p>
+</dd>
+<dt class="field-even">Raises</dt>
+<dd class="field-even"><p><strong>ValueError</strong> – </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="custom_logger.Logger.initialize_logger">
+<em class="property">static </em><code class="sig-name descname">initialize_logger</code><span class="sig-paren">(</span><em class="sig-param">logger_prop_file_path</em>, <em class="sig-param">log_file_path</em><span class="sig-paren">)</span><a class="headerlink" href="#custom_logger.Logger.initialize_logger" title="Permalink to this definition">¶</a></dt>
+<dd><p>Initializes the logger. Creates a new instance of <cite>Logger</cite> to call <a class="reference internal" href="#custom_logger.Logger.__init__" title="custom_logger.Logger.__init__"><code class="xref py py-func docutils literal notranslate"><span class="pre">__init__()</span></code></a></p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>logger_prop_file_path</strong> (<em>str</em>) – the path of logger.properties</p></li>
+<li><p><strong>log_file_path</strong> (<em>str</em>) – the path of the log file</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="custom_logger.Logger.log">
+<em class="property">static </em><code class="sig-name descname">log</code><span class="sig-paren">(</span><em class="sig-param">log_level</em>, <em class="sig-param">module_name</em>, <em class="sig-param">method_name</em>, <em class="sig-param">log_text</em><span class="sig-paren">)</span><a class="headerlink" href="#custom_logger.Logger.log" title="Permalink to this definition">¶</a></dt>
+<dd><p>Call this method to log text</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>log_level</strong> (<em>str</em>) – level of logging</p></li>
+<li><p><strong>module_name</strong> (<em>str</em>) – module name</p></li>
+<li><p><strong>method_name</strong> (<em>str</em>) – name of method being entered</p></li>
+<li><p><strong>log_text</strong> (<em>str</em>) – text to be logged</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="custom_logger.Logger.perform_method_entry_logging">
+<em class="property">static </em><code class="sig-name descname">perform_method_entry_logging</code><span class="sig-paren">(</span><em class="sig-param">module_name</em>, <em class="sig-param">method_name</em><span class="sig-paren">)</span><a class="headerlink" href="#custom_logger.Logger.perform_method_entry_logging" title="Permalink to this definition">¶</a></dt>
+<dd><p>Call this method before entering a method</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>module_name</strong> (<em>str</em>) – module name</p></li>
+<li><p><strong>method_name</strong> (<em>str</em>) – name of method being entered</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="custom_logger.Logger.perform_method_exit_logging">
+<em class="property">static </em><code class="sig-name descname">perform_method_exit_logging</code><span class="sig-paren">(</span><em class="sig-param">module_name</em>, <em class="sig-param">method_name</em><span class="sig-paren">)</span><a class="headerlink" href="#custom_logger.Logger.perform_method_exit_logging" title="Permalink to this definition">¶</a></dt>
+<dd><p>Call this method after exiting a method</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>module_name</strong> (<em>str</em>) – module name</p></li>
+<li><p><strong>method_name</strong> (<em>str</em>) – name of method being entered</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<hr class="docutils" />
+</div>
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="index.html">Yet Another Logger</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Documentation for the Code</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#module-YALogger.custom_logger">custom_logger.py</a></li>
+</ul>
+</li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="index.html">Documentation overview</a><ul>
+      <li>Previous: <a href="index.html" title="previous chapter">Welcome to Yet Another Logger’s documentation!</a></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2019, DivyenduDutta.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 2.2.0</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="_sources/code.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>
