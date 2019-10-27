@@ -1,4 +1,4 @@
-# goodreads-scraper-visualizer   
+# goodreads-scraper-visualizer    [![Documentation Status](https://readthedocs.org/projects/yalogger/badge/?version=latest)](https://yalogger.readthedocs.io/en/latest/?badge=latest)
 
 Minimalist logger written in python.
 
@@ -22,6 +22,13 @@ Supports *2 modes of logging*:
 
 
 **Log format - [log_level timestamp] [Module name]-[Method name] <log text>**
+
+### Documentation
+
+Hosted on [Read The Docs](https://yalogger.readthedocs.io/en/latest/).
+
+Achieved via Sphinx (as the doc build tool), reStructuredText as the markup and hosted on Read The Docs website.
+
 	
 ### REQUIREMENTS
 	
