@@ -37,6 +37,10 @@ Log file looks like source
 
 ![alt text](https://github.com/DivyenduDutta/YALogger/blob/master/images/log%20output%20file.PNG)
 
+logger.properties looks like so
+
+![alt text](https://github.com/DivyenduDutta/YALogger/blob/master/images/logger%20properties.PNG)
+
 	
 ### REQUIREMENTS
 	
