@@ -21,7 +21,7 @@ Supports *2 modes of logging*:
 2. **CONSOLE** - Logs to the standard output console
 
 
-**Log format - [<log level> <timestamp>] [Module name]-[Method name] <log text>**
+**Log format - [log_level timestamp] [Module name]-[Method name] <log text>**
 	
 ### REQUIREMENTS
 	
