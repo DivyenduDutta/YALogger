@@ -54,6 +54,12 @@ Logger.perform_method_exit_logging('foo','bar')
 Logger.log('info', 'foo','bar','this is the log text')
 ```
 
+Look for sample usage code in sample folder
+
+Refer to [sample logger.properties](https://github.com/DivyenduDutta/YALogger/blob/master/Yet%20Another%20Logger/sample/logger.properties).
+
+Ensure logs folder is present 
+
 
 ### License
 
