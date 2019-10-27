@@ -11,12 +11,12 @@ setuptools.setup(
      description="Yet Another custom logger",
      long_description=long_description,
    long_description_content_type="text/markdown",
-     url="https://github.com/javatechy/dokr",
+     url="https://github.com/DivyenduDutta/YALogger",
      packages=setuptools.find_packages(),
      classifiers=[
          "Programming Language :: Python :: 2.7",
          "License :: OSI Approved :: GNU General Public License v3 (GPLv3)",
          "Operating System :: Microsoft :: Windows",
      ],
-	 python_requires='>=2.7'
+	 python_requires='>=2.7',
  )
