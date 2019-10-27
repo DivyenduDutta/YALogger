@@ -30,15 +30,16 @@ Supports *2 modes of logging*:
 2. logs folder
 
 
-logger.properties file needs to have [logger properties] at the root
+logger.properties file needs to have **[logger properties]** at the root
 	
 ### SAMPLE USAGE
 	
 ```from YALogger.custom_logger import Logger 
-	Logger.initialize_logger(logger_prop_file_path = '.\logger.properties',log_file_path = './logs') 
-	Logger.perform_method_entry_logging('foo','bar')
-	Logger.perform_method_exit_logging('foo','bar') 
-	Logger.log('info', 'foo','bar','this is the log text')```
+Logger.initialize_logger(logger_prop_file_path = '.\logger.properties',log_file_path = './logs') 
+Logger.perform_method_entry_logging('foo','bar')
+Logger.perform_method_exit_logging('foo','bar') 
+Logger.log('info', 'foo','bar','this is the log text')
+```
 
 
 ### License
