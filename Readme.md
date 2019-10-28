@@ -2,7 +2,8 @@
 
 Minimalist logger written in python.
 
-Currently only provides three functions for logging
+Currently only provides three functions for logging. Also currently log() only supports logging text and dict, whereas
+for other python objects it logs the type only. Enhancement open in issues.
 
 1. **Method entry logging**
 
