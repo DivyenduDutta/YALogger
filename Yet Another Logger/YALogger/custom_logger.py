@@ -15,6 +15,7 @@ import ConfigParser
 from datetime import datetime
 from ConfigParser import NoSectionError
 from Constants import LOG_TEXT_START_END
+import json
 
 class Logger(object):
 	"""
@@ -30,7 +31,7 @@ class Logger(object):
 	
 	Supports *3 levels of logging* - *INFO, ERROR, DEBUG*. These are mutually exclusive (ie not hierarchial)
 	
-	Supports *2 modes of logging*: \n
+	Supports *2 modes of logging* (simultaneously): \n
 	1. **FILE** - Writes logs to a file in the logs folder \n
 	2. **CONSOLE** - Logs to the standard output console \n
 	
@@ -208,7 +209,7 @@ class Logger(object):
 				log_file = Logger._open_log_file(Logger.__log_file_path)
 				log_file.write(log_text)
 				log_file.close()
-			elif 'CONSOLE' in Logger.__mode:
+			if 'CONSOLE' in Logger.__mode:
 				print(log_text)
 		else:
 			pass
@@ -230,7 +231,7 @@ class Logger(object):
 				log_file = Logger._open_log_file(Logger.__log_file_path)
 				log_file.write(log_text)
 				log_file.close()
-			elif 'CONSOLE' in Logger.__mode:
+			if 'CONSOLE' in Logger.__mode:
 				print(log_text)
 		else:
 			pass
@@ -238,23 +239,34 @@ class Logger(object):
 	@staticmethod
 	def log(log_level, module_name, method_name, log_text):
 		"""
-		Call this method to log text
+		Call this method to log text. \n
+		Support added for log_text to be anything other than string as well (like dict, list etc)
 		
 		Args:
 			log_level(str) : level of logging
 			module_name(str) : module name
 			method_name(str) : name of method being entered
-			log_text(str) : text to be logged
+			log_text(anything) : stuff to be logged
 		"""
 		if log_level.upper() in Logger.__level:
-			log_text = (LOG_TEXT_START_END + '[ ' + log_level +'\t'
+			final_log_text_start = (LOG_TEXT_START_END + '[ ' + log_level +'\t'
 				'' + Logger.__current_timestamp+ '][' + module_name + ']'
-				'-[' + method_name + '] ' + log_text +'\n' + LOG_TEXT_START_END)
+				'-[' + method_name + '] \n')
+			if type(log_text) == dict:
+				log_text = json.dumps(log_text)
+			else:
+				if type(log_text) != str:
+					log_text = str(type(log_text))
+			print(Logger.__mode)
 			if 'FILE' in Logger.__mode:
 				log_file = Logger._open_log_file(Logger.__log_file_path)
+				log_file.write(final_log_text_start)
 				log_file.write(log_text)
+				log_file.write('\n' + LOG_TEXT_START_END)
 				log_file.close()
-			elif 'CONSOLE' in Logger.__mode:
+			if 'CONSOLE' in Logger.__mode:
+				print(final_log_text_start)
 				print(log_text)
+				print('\n' + LOG_TEXT_START_END)
 		else:
 			pass
