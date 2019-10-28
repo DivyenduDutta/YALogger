@@ -1,4 +1,4 @@
-# goodreads-scraper-visualizer    [![Documentation Status](https://readthedocs.org/projects/yalogger/badge/?version=latest)](https://yalogger.readthedocs.io/en/latest/?badge=latest)
+# Yet Another Logger    [![Documentation Status](https://readthedocs.org/projects/yalogger/badge/?version=latest)](https://yalogger.readthedocs.io/en/latest/?badge=latest)
 
 Minimalist logger written in python.
 
