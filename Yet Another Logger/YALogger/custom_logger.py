@@ -145,7 +145,7 @@ class Logger(object):
 		
 		are_log_levels_valid = [log_level in valid_logging_levels for log_level in logging_level_list]
 		
-		if any(are_log_levels_valid):
+		if all(are_log_levels_valid):
 			return logging_level_list
 		else:
 			raise ValueError('Not supported in logging properties. Check properties file')
@@ -176,7 +176,7 @@ class Logger(object):
 		
 		are_log_modes_valid = [log_mode in valid_logging_modes for log_mode in logging_mode_list]
 		
-		if any(are_log_modes_valid):
+		if all(are_log_modes_valid):
 			return logging_mode_list
 		else:
 			raise ValueError('Not supported in logging properties. Check properties file')
@@ -257,7 +257,6 @@ class Logger(object):
 			else:
 				if type(log_text) != str:
 					log_text = str(type(log_text))
-			print(Logger.__mode)
 			if 'FILE' in Logger.__mode:
 				log_file = Logger._open_log_file(Logger.__log_file_path)
 				log_file.write(final_log_text_start)
