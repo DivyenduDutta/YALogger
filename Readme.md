@@ -1,4 +1,4 @@
-# Yet Another Logger    [![Documentation Status](https://readthedocs.org/projects/yalogger/badge/?version=latest)](https://yalogger.readthedocs.io/en/latest/?badge=latest)
+# Yet Another Logger    [![Documentation Status](https://readthedocs.org/projects/yalogger/badge/?version=latest)](https://yalogger.readthedocs.io/en/latest/?badge=latest) ![PyPI](https://img.shields.io/pypi/v/YALogger)
 
 Minimalist logger written in python.
 
