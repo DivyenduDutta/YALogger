@@ -1,4 +1,4 @@
-# Yet Another Logger    [![Documentation Status](https://readthedocs.org/projects/yalogger/badge/?version=latest)](https://yalogger.readthedocs.io/en/latest/?badge=latest) ![PyPI](https://img.shields.io/pypi/v/YALogger) [![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://github.com/DivyenduDutta/YALogger/blob/master/LICENSE.md)
+# Yet Another Logger    [![Documentation Status](https://readthedocs.org/projects/yalogger/badge/?version=latest)](https://yalogger.readthedocs.io/en/latest/?badge=latest) ![PyPI](https://img.shields.io/pypi/v/YALogger) [![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://github.com/DivyenduDutta/YALogger/blob/master/LICENSE.md) [![Code Style](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/ambv/black)
 
 Minimalist logger written in python.
 
