@@ -6,15 +6,15 @@
 .. moduleauthor:: DivyenduDutta
 
 .. note::
-	Tested to work only with python 2.7, not sure about python 3+
+	Works with python3, no support for python 2.7
 
 """
 import os
 from os import path
-import ConfigParser
+import configparser
 from datetime import datetime
-from ConfigParser import NoSectionError
-from Constants import LOG_TEXT_START_END
+from configparser import NoSectionError
+from YALogger.Constants import LOG_TEXT_START_END
 import json
 
 
@@ -94,7 +94,7 @@ class Logger(object):
 			IOError
 		"""
         if path.exists(logger_prop_file_path) == True:
-            config = ConfigParser.ConfigParser()
+            config = configparser.ConfigParser()
             config.readfp(open(logger_prop_file_path))
             try:
                 Logger.__level = Logger._validate_logging_level(
